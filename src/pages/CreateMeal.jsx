@@ -10,18 +10,19 @@ function CreateMeal() {
   const [category, setCategory] = useState("");
   const [instructions, setInstructions] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [message , setMessage] = useState("")
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!user) {
-      alert("You need to be logged in to create a meal.");
+      setMessage("You need to be logged in to create a meal.");
       return;
     }
 
     if (!mealTitle || !category || !instructions || !imageUrl) {
-      alert("Please fill in all fields.");
+      setMessage("Please fill in all fields.");
       return;
     }
 
@@ -34,8 +35,12 @@ function CreateMeal() {
     };
 
     addMealToUser(category, newMeal); // Save the meal under the category
-    alert(`Meal added to ${category} category!`);
-    navigate('/my-created-meals'); // Redirect to category page
+    setMessage(`Meal added to ${category} category!`);
+
+    setTimeout(() => {
+      navigate('/my-created-meals');
+    }, 2000);
+
   };
 
   return (
@@ -66,6 +71,7 @@ function CreateMeal() {
 
         <button type="submit" className="submit-button">Add Meal</button>
       </form>
+       <h4 className="message">{message}</h4>
     </div>
     </>
  

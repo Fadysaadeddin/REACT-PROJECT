@@ -38,17 +38,6 @@
     text-decoration: none; /* Removes underline */
     color: inherit; /* Keeps text color the same as surrounding text */
   }
-  /* Search Bar */
-/* .search-bar {
-  display: flex;
-  align-items: center;
-  background-color: white;
-  border-radius: 30px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  padding: 4px;
-  flex-grow: 1;
-  max-width: 400px;
-} */
 
 
 
@@ -140,7 +129,7 @@
   width: 200px;
 }
 
-/* Mobile Menu Buttons */
+
 .mobile-menu a,
 .logout-button {
   color: white;
@@ -158,6 +147,10 @@
 .logout-button:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
+
+
+
+/* 
 
 @media (max-width: 510px) {
   .navbar {
@@ -210,5 +203,95 @@
 
   .hamburger {
     margin-right: 30px;
+  }
+} */
+
+
+@media (max-width: 1080px) {
+  .navbar {
+    padding: 8px 15px; /* Reduce padding */
+  }
+
+  .logo {
+    width: 40px; /* Make logo smaller */
+    height: 40px;
+  }
+
+  .navbar h2 {
+    font-size: 14px; /* Reduce font size */
+  }
+
+  .search-bar {
+    max-width: 300px; /* Make search bar slightly smaller */
+    padding: 3px;
+  }
+
+  .search-input {
+    padding: 6px; /* Reduce input padding */
+    font-size: 14px;
+  }
+
+  .search-button {
+    font-size: 16px;
+    padding: 4px 8px;
+  }
+
+  .hamburger {
+    font-size: 22px; /* Reduce hamburger icon size */
+    margin-right: 50px;
+  }
+
+  .mobile-menu {
+    width: 180px; /* Slightly reduce menu width */
+    padding: 8px;
+  }
+
+  .mobile-menu a {
+    font-size: 14px;
+    padding: 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 5px 10px;
+  }
+
+  .logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  .navbar h2 {
+    font-size: 12px;
+  }
+
+  .search-bar {
+    max-width: 250px;
+  }
+
+  .search-input {
+    font-size: 13px;
+    padding: 5px;
+  }
+
+  .search-button {
+    font-size: 14px;
+    padding: 3px 7px;
+  }
+
+  .hamburger {
+    font-size: 20px;
+    margin-right: 30px;
+  }
+
+  .mobile-menu {
+    width: 160px;
+    padding: 6px;
+  }
+
+  .mobile-menu a {
+    font-size: 12px;
+    padding: 5px;
   }
 }
