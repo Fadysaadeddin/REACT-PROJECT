@@ -8,7 +8,7 @@ const FoodCategory = () => {
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error loading data</div>;
-  console.log(data);
+
   return (
     <div className="home-container">
       <h1>Food Categories</h1>

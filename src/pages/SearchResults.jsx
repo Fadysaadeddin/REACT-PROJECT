@@ -16,7 +16,7 @@ function SearchResults() {
   const { data, loading, error } = useFetch(
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchQuery}` 
   );
-console.log(data)
+
   useEffect(() => {
     if (data?.meals) {
       const filteredMeals = data.meals.filter((meal) => 
@@ -26,6 +26,7 @@ console.log(data)
         meal.strInstructions.toLowerCase().includes(searchQuery.toLowerCase())
       );
 
+      console.log(filteredMeals)
       setSearchResults(filteredMeals); 
     } else {
       setSearchResults([]); 

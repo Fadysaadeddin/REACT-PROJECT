@@ -49,8 +49,9 @@ const Register = () => {
         />
         <button type="submit">Register</button>
         <p>
-          Already have an account? <Link to="/login" >login</Link>
-        </p>
+  Already have an account? <Link to="/login" style={{ textDecoration: "none" }}>login</Link>
+</p>
+
         {message && (
           <h4
             style={{ color: message.includes("successful") ? "green" : "red" }}

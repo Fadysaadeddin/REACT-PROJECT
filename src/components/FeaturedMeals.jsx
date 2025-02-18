@@ -22,7 +22,7 @@ const FeaturedMeals = () => {
             key={meal.idMeal}
             className="meal-card"
           >
-            <h4 className="meal-title">{meal.strMeal}</h4>{" "}
+            <h4 className="meal-title">{meal.strMeal}</h4>
            
             <img
               src={meal.strMealThumb}
@@ -30,7 +30,7 @@ const FeaturedMeals = () => {
               className="meal-image"
             />
             <p className="meal-description">
-              {meal.strInstructions.substring(0, 100)}...{" "}
+              {meal.strInstructions.substring(0, 100)}...
             
             </p>
           </Link>

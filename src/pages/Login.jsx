@@ -47,7 +47,7 @@ const Login = () => {
         />
         <button type="submit">Login</button>
         <p>
-          Don't have an account? <Link to="/" >login</Link>
+          Don't have an account? <Link to="/"  style={{ textDecoration: "none" }}>Register</Link>
         </p>
         {errorMessage && <h4 style={{ color: "red" }}>{errorMessage}</h4>}
       </form>
