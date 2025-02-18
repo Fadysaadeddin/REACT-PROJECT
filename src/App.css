@@ -23,7 +23,6 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
-
 }
 
 .card {
@@ -339,81 +338,67 @@ h1 {
 /* created meal page  */
 
 .created-meals-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  margin-top: 100px;
-  background: #f8f9fa;
   padding: 20px;
+  text-align: center;
+  margin-top: 100px;
 }
 
-.created-meals-container h2 {
-  font-size: 28px;
+.title {
+  font-size: 30px;
   font-weight: bold;
-  color: #333;
   margin-bottom: 20px;
-  text-align: center;
+  color: #333;
 }
 
-.created-meals-container h3 {
-  font-size: 22px;
-  color: #0c75e6;
-  margin-top: 20px;
-  text-align: center;
+.no-meals-message {
+  color: #777;
+  font-size: 18px;
 }
 
-.created-meals-container ul {
-  list-style: none;
-  padding: 0;
+.meals-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
-  width: 100%;
-  max-width: 1000px;
   justify-content: center;
+  padding: 10px;
 }
 
-.created-meals-container li {
+.meal-card {
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  transition: transform 0.2s ease-in-out;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
 }
 
-.created-meals-container li:hover {
-  transform: translateY(-5px);
+.meal-card:hover {
+  transform: scale(1.05);
 }
 
-.created-meals-container h4 {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.created-meals-container p {
-  font-size: 14px;
-  color: #555;
-  line-height: 1.5;
-  max-width: 90%;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
-}
-
-.created-meals-container img {
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
+.meal-image {
+  width: 100%;
+  height: 180px;
   object-fit: cover;
-  margin-top: 10px;
+}
+
+.meal-content {
+  padding: 15px;
+}
+
+.meal-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #444;
+}
+
+.meal-description {
+  font-size: 15px;
+  color: #666;
+  margin-top: 5px;
+  max-height: 70px;
+  overflow: hidden;
+  word-wrap: break-word;
+  white-space: normal;
 }
 
 /* search page  */
