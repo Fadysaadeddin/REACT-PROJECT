@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate , Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 const Register = () => {
@@ -49,7 +49,7 @@ const Register = () => {
         />
         <button type="submit">Register</button>
         <p>
-          Already have an account? <a href="/login">Login</a>
+          Already have an account? <Link to="/login" >login</Link>
         </p>
         {message && (
           <h4
@@ -64,3 +64,5 @@ const Register = () => {
 };
 
 export default Register;
+
+
