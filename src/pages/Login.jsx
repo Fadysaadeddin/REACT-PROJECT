@@ -20,7 +20,7 @@ const Login = () => {
 
     if (storedUser) {
       login(storedUser);
-      localStorage.setItem("user", JSON.stringify(storedUser));
+    
       navigate("/home");
     } else {
       setErrorMessage("Invalid name or password!");

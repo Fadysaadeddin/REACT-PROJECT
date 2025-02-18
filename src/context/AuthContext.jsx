@@ -26,20 +26,19 @@ export const AuthProvider = ({ children }) => {
       email,
       password,
       favorites: [],
-      mealsByCategory: {},
+      createdMeals: [],
     };
 
     existingUsers.push(newUser);
     localStorage.setItem("users", JSON.stringify(existingUsers));
 
-    login(newUser);
     return "Registration successful! You can now log in.";
   };
 
   const login = (userData) => {
     setUser({
       ...userData,
-      mealsByCategory: userData.mealsByCategory || {},
+      createdMeals: userData.createdMeals || {},
       favorites: userData.favorites || [],
     });
     localStorage.setItem("user", JSON.stringify(userData));
@@ -50,21 +49,23 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("user");
   };
 
-  const addMealToUser = (category, meal) => {
+  const addMealToUser = (meal) => {
     if (!user) return;
 
     setUser((prevUser) => {
-      const updatedMeals = {
-        ...prevUser.mealsByCategory,
-        [category]: [...(prevUser.mealsByCategory[category] || []), meal],
-      };
+      const updatedMeals = [...(prevUser.createdMeals || []), meal];
 
-      const updatedUser = { ...prevUser, mealsByCategory: updatedMeals };
+      const updatedUser = { ...prevUser, createdMeals: updatedMeals };
+
       localStorage.setItem("user", JSON.stringify(updatedUser));
+
       return updatedUser;
     });
   };
 
+  const getCreatedMeals = () => {
+    return user?.createdMeals || [];
+  };
   const addToFavorites = (meal) => {
     if (!user) return;
 
@@ -85,13 +86,9 @@ export const AuthProvider = ({ children }) => {
       };
 
       localStorage.setItem("user", JSON.stringify(updatedUser));
-     
+
       return updatedUser;
     });
-  };
-
-  const getCreatedMeals = () => {
-    return user?.mealsByCategory || {};
   };
 
   return (
@@ -110,4 +107,3 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
-
