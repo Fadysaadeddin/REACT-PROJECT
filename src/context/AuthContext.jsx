@@ -1,6 +1,4 @@
-
 import { createContext, useState, useEffect } from "react";
-
 
 export const AuthContext = createContext();
 
@@ -9,65 +7,48 @@ export const AuthProvider = ({ children }) => {
     return JSON.parse(localStorage.getItem("user")) || null;
   });
 
-
-
-
   useEffect(() => {
     if (user) {
       localStorage.setItem("user", JSON.stringify(user));
     }
   }, [user]);
 
-    // Registration functionality
-    const register = (name, email, password) => {
-      // Get existing users or create an empty array
-      const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-  
-      // Check if user already exists
-      const userExists = existingUsers.some(user => user.email === email);
-      if (userExists) {
-        alert("User already registered! Try logging in.");
-        return;
-      }
-  
-      // Create new user object
-      const newUser = {
-        name,
-        email,
-        password,
-        favorites: [],
-        mealsByCategory: {} // Store meals created by user
-      };
-  
-      // Add new user to the list
-      existingUsers.push(newUser);
-      localStorage.setItem("users", JSON.stringify(existingUsers));
-  
-      // Log in the new user
-      login(newUser); // Automatically log in after registering
+  const register = (name, email, password) => {
+    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+    const userExists = existingUsers.some((user) => user.email === email);
+    if (userExists) {
+      return "User already registered! Try logging in.";
+    }
+
+    const newUser = {
+      name,
+      email,
+      password,
+      favorites: [],
+      mealsByCategory: {},
     };
+
+    existingUsers.push(newUser);
+    localStorage.setItem("users", JSON.stringify(existingUsers));
+
+    login(newUser);
+    return "Registration successful! You can now log in.";
+  };
 
   const login = (userData) => {
     setUser({
       ...userData,
-      mealsByCategory: userData.mealsByCategory || {}, // Ensure meals storage
-      favorites: userData.favorites || [] // Ensure favorites storage
+      mealsByCategory: userData.mealsByCategory || {},
+      favorites: userData.favorites || [],
     });
-    localStorage.setItem("user", JSON.stringify(userData)); // ✅ Persist user data
+    localStorage.setItem("user", JSON.stringify(userData));
   };
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("user"); // ✅ Clear localStorage on logout
+    localStorage.removeItem("user");
   };
-
-
-
-
-
-
-
-
 
   const addMealToUser = (category, meal) => {
     if (!user) return;
@@ -79,56 +60,54 @@ export const AuthProvider = ({ children }) => {
       };
 
       const updatedUser = { ...prevUser, mealsByCategory: updatedMeals };
-      localStorage.setItem("user", JSON.stringify(updatedUser)); // ✅ Persist changes
+      localStorage.setItem("user", JSON.stringify(updatedUser));
       return updatedUser;
     });
   };
-
-
-
-
-
-
 
   const addToFavorites = (meal) => {
     if (!user) return;
-  
+
     setUser((prevUser) => {
-      // Ensure favorites array exists
       const currentFavorites = prevUser.favorites || [];
-  
-      // Check if the meal is already in favorites
-      const isFavorite = currentFavorites.some((fav) => fav.idMeal === meal.idMeal);
-  
-      // Toggle favorite: remove if already there, add if not
+
+      const isFavorite = currentFavorites.some(
+        (fav) => fav.idMeal === meal.idMeal
+      );
+
       const updatedFavorites = isFavorite
         ? currentFavorites.filter((fav) => fav.idMeal !== meal.idMeal)
         : [...currentFavorites, meal];
-  
-      // Update user object with new favorites
-      const updatedUser = { 
-        ...prevUser, 
-        favorites: updatedFavorites
+
+      const updatedUser = {
+        ...prevUser,
+        favorites: updatedFavorites,
       };
-  
-      // Save changes to localStorage
+
       localStorage.setItem("user", JSON.stringify(updatedUser));
-      
+     
       return updatedUser;
     });
   };
-  
+
   const getCreatedMeals = () => {
     return user?.mealsByCategory || {};
   };
-  
 
   return (
-    <AuthContext.Provider value={{ user, register,login, logout, addMealToUser, addToFavorites , getCreatedMeals }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        register,
+        login,
+        logout,
+        addMealToUser,
+        addToFavorites,
+        getCreatedMeals,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
 };
-
-
 

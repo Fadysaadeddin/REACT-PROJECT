@@ -1,4 +1,4 @@
-/* Navbar Container */
+/* navbar div container  */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -12,58 +12,52 @@
   left: 0;
   z-index: 100;
   box-sizing: border-box;
+  height: 100px;
 }
 
-/* Logo and Welcome Section */
+/* div logo and foodfactory  */
+
 .logo-container {
   display: flex;
-  align-items: center; /* Align the logo and text vertically centered */
-  justify-content: flex-start;
-  width: 15%; /* Take 15% of the navbar's width */
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+  height: inherit;
+  margin-right: 20px;
 }
 
-.logo {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px; /* Space between the logo and text */
+.logo-container .logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
 }
-
-/* Container for Text (FoodFactory) */
-.navbar h2 {
-  font-size: 16px;
-  margin-bottom: 2px;
-
+.logo-container h2 {
+  font-size: 20px;
+  margin-bottom: 4px;
 }
 .logo-container a {
-    text-decoration: none; /* Removes underline */
-    color: inherit; /* Keeps text color the same as surrounding text */
-  }
+  text-decoration: none;
+  color: inherit;
+}
 
+/* search div  */
 
-
-
-
-
-
-
-
-  .search-container {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center horizontally */
-    justify-content: center;
-    width: 100%;
-  }
-
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: inherit;
+  margin-right: 20px;
+}
 
 .search-title {
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 14px; /* Add space between title and search bar */
+  margin-bottom: 10px;
   color: white;
-  text-align: center;
-  margin-top: -5px; 
-
+  height: inherit;
 }
 
 .search-bar {
@@ -73,16 +67,12 @@
   border-radius: 30px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   padding: 4px;
-  max-width: 400px;
-  width: 100%;
 
+  width: 80%; /*  to control the width of the input  */
+  margin-bottom: 12px;
+
+  height: 30px;
 }
-
-
-
-
-
-
 
 .search-input {
   border: none;
@@ -90,6 +80,7 @@
   flex-grow: 1;
   padding: 8px;
   border-radius: 30px;
+  width: 100%;
 }
 
 .search-button {
@@ -104,6 +95,9 @@
 /* Hamburger Menu */
 .hamburger-container {
   position: relative;
+
+  margin-right: 30px;
+  width: 50px;
 }
 
 .hamburger {
@@ -129,7 +123,6 @@
   width: 200px;
 }
 
-
 .mobile-menu a,
 .logout-button {
   color: white;
@@ -148,86 +141,28 @@
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-
-
-/* 
-
-@media (max-width: 510px) {
-  .navbar {
-    padding: 5px 10px;
-  }
-
-  .search-bar {
-    padding: 2px;
-    flex-grow: 1;
-    max-width: 250px;
-    margin-left: 20px;
-  }
-
-  .search-input {
-    padding: 10px;
-    font-size: 15px;
-  }
-
-  .search-button {
-    font-size: 18px;
-    padding: 5px 10px;
-  }
-
-  .hamburger {
-    margin-right: 30px;
-  }
-}
-
-@media (max-width: 800px) {
-  .navbar {
-    padding: 5px 10px;
-  }
-
-  .search-bar {
-    padding: 2px;
-    flex-grow: 1;
-    max-width: 250px;
-    margin-left: 20px;
-  }
-
-  .search-input {
-    padding: 10px;
-    font-size: 15px;
-  }
-
-  .search-button {
-    font-size: 18px;
-    padding: 5px 10px;
-  }
-
-  .hamburger {
-    margin-right: 30px;
-  }
-} */
-
-
 @media (max-width: 1080px) {
   .navbar {
-    padding: 8px 15px; /* Reduce padding */
+    padding: 8px 15px;
   }
 
   .logo {
-    width: 40px; /* Make logo smaller */
+    width: 40px;
     height: 40px;
   }
 
   .navbar h2 {
-    font-size: 14px; /* Reduce font size */
+    font-size: 14px;
   }
 
   .search-bar {
-    max-width: 300px; /* Make search bar slightly smaller */
+    max-width: 300px;
+    width: 80%;
     padding: 3px;
   }
 
   .search-input {
-    padding: 6px; /* Reduce input padding */
+    padding: 6px;
     font-size: 14px;
   }
 
@@ -237,12 +172,12 @@
   }
 
   .hamburger {
-    font-size: 22px; /* Reduce hamburger icon size */
+    font-size: 22px;
     margin-right: 50px;
   }
 
   .mobile-menu {
-    width: 180px; /* Slightly reduce menu width */
+    width: 180px;
     padding: 8px;
   }
 
@@ -267,7 +202,7 @@
   }
 
   .search-bar {
-    max-width: 250px;
+    max-width: 200px;
   }
 
   .search-input {

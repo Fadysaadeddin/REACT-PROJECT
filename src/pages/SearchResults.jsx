@@ -8,28 +8,27 @@ import NavBar from "../components/Navbar";
 function SearchResults() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const searchQuery = queryParams.get("query") || ""; // Get the search query from URL
+  const searchQuery = queryParams.get("query") || ""; 
 
   const [searchResults, setSearchResults] = useState([]);
 
-  // Fetch meal data from the API (search across all meals)
+  
   const { data, loading, error } = useFetch(
-    `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchQuery}` // Pass search query to filter meals by name or ingredient
+    `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchQuery}` 
   );
 console.log(data)
-  // Filter meals when data is fetched or searchQuery changes
   useEffect(() => {
     if (data?.meals) {
       const filteredMeals = data.meals.filter((meal) => 
-        // Match query in strMeal (meal name) or strInstructions (meal instructions)
-        // meal.strMeal.toLowerCase().includes(searchQuery.toLowerCase()) 
-        // ||
+    
+         meal.strMeal.toLowerCase().includes(searchQuery.toLowerCase()) 
+         ||
         meal.strInstructions.toLowerCase().includes(searchQuery.toLowerCase())
       );
 
-      setSearchResults(filteredMeals); // Set the filtered results
+      setSearchResults(filteredMeals); 
     } else {
-      setSearchResults([]); // Reset if no meals are found
+      setSearchResults([]); 
     }
   }, [data, searchQuery]);
 

@@ -23,7 +23,7 @@ const FeaturedMeals = () => {
             className="meal-card"
           >
             <h4 className="meal-title">{meal.strMeal}</h4>{" "}
-            {/* Title Above Image */}
+           
             <img
               src={meal.strMealThumb}
               alt={meal.strMeal}
@@ -31,7 +31,7 @@ const FeaturedMeals = () => {
             />
             <p className="meal-description">
               {meal.strInstructions.substring(0, 100)}...{" "}
-              {/* Show first 100 characters */}
+            
             </p>
           </Link>
         ))}

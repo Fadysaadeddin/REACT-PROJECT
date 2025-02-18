@@ -34,7 +34,7 @@ function CreateMeal() {
       strMealThumb: imageUrl,
     };
 
-    addMealToUser(category, newMeal); // Save the meal under the category
+    addMealToUser(category, newMeal); 
     setMessage(`Meal added to ${category} category!`);
 
     setTimeout(() => {

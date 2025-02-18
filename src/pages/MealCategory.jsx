@@ -1,17 +1,16 @@
-
 import { Link, useParams } from "react-router-dom";
 import UseFetch from "../hooks/UseFetch";
 import Navbar from "../components/Navbar";
 import { useContext } from "react";
 import { FaHeart } from "react-icons/fa";
-import { AuthContext } from "../context/AuthContext"; // ✅ Import AuthContext
+import { AuthContext } from "../context/AuthContext";
 
 const MealCategory = () => {
   const { name } = useParams();
   const { data, loading, error } = UseFetch(
     `https://www.themealdb.com/api/json/v1/1/filter.php?c=${name}`
   );
-  const { user, addToFavorites } = useContext(AuthContext); // ✅ Get user & addToFavorites from context
+  const { user, addToFavorites } = useContext(AuthContext);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error loading data</div>;
@@ -29,7 +28,7 @@ const MealCategory = () => {
                   ? "favorite"
                   : ""
               }`}
-              onClick={() => addToFavorites(meal)} // ✅ Use context function
+              onClick={() => addToFavorites(meal)}
             />
             <Link to={`/meal/${meal.idMeal}`}>
               <img src={meal.strMealThumb} alt={meal.strMeal} />
