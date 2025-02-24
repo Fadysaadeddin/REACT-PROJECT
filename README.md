@@ -4,7 +4,7 @@ This project is designed to showcase a wide variety of foods, organized into dif
 
 Additionally, users can add any meal to their favorites, which can be accessed later on the favorites page. Another key feature allows users to create their own meals by specifying a title, category, preparation method, and uploading an image. These custom meals will be displayed on the "Created Meals" page.
 
-Moreover, the app includes a search bar, enabling users to quickly find any meal they are looking for.
+Moreover, the app includes a search bar, enabling users to quickly find any meal they are looking for.... 
 
 - [To visit](https://testproject-git-master-fadysaadeddins-projects.vercel.app ) 
 
